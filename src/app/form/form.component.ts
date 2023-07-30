@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { nifValidator } from '../shared/validators/nifValidator';
+import { maiorValidator } from '../shared/validators/maiorValidator';
 
 @Component({
   selector: 'app-form',
@@ -16,9 +18,9 @@ export class FormComponent implements OnInit{
   ngOnInit(){
     this.form = this.formBuilder.group({
       name: [null, Validators.required],
-      email: [null, [Validators.required, Validators.email]],
-      nif: [null, [Validators.required]],
-      nascimento: [null,[Validators.required]],
+      email: [null, [Validators.required, Validators.pattern(/.+@.+\..+/)]],
+      nif: [null, [Validators.required, nifValidator]],
+      nascimento: [null,[Validators.required, maiorValidator]],
       pais: [null, [Validators.required]],
       cidade: [null, [Validators.required]],
       endereco: [null, Validators.required],
@@ -26,9 +28,6 @@ export class FormComponent implements OnInit{
       telefone: [null, [Validators.required]],
       genero: [null, [Validators.required]],
     })
-  }
-  showForm(){
-    return JSON.stringify(this.form.value)
   }
 
   onSubmit(){
