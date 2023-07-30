@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { nifValidator } from '../shared/validators/nifValidator';
 import { maiorValidator } from '../shared/validators/maiorValidator';
 
+
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
@@ -25,7 +26,7 @@ export class FormComponent implements OnInit{
       cidade: [null, [Validators.required]],
       endereco: [null, Validators.required],
       codigopostal: [null, [Validators.required]],
-      telefone: [null, [Validators.required]],
+      telefone: [null, [Validators.required, Validators.pattern(/^9[1236]{1}[0-9]{7}$|^2[1236]{1}[0-9]{7}$|^3[1236]{1}[0-9]{7}$/)]],
       genero: [null, [Validators.required]],
     })
   }
