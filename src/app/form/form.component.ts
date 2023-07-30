@@ -14,6 +14,16 @@ export class FormComponent implements OnInit{
 
   form!: FormGroup;
 
+  citiesByCountry:{[key: string]: string[]} = {
+    "Angola": ["Benguela", "Luanda"],
+    "Brasil":["Rio de Janeiro","São Paulo"],
+    "CaboVerde":["Praia", "Mindelo"],
+    "Moçambique":["Maputo", "Matola"],
+    "Portugal": ["Lisboa", "Porto"],
+  }
+
+  cities: string[] = [];
+
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit(){
@@ -29,6 +39,12 @@ export class FormComponent implements OnInit{
       telefone: [null, [Validators.required, Validators.pattern(/^9[1236]{1}[0-9]{7}$|^2[1236]{1}[0-9]{7}$|^3[1236]{1}[0-9]{7}$/)]],
       genero: [null, [Validators.required]],
     })
+  }
+
+
+  onChange(){
+    const country:string = this.form.get("pais")?.value;
+    this.cities = this.citiesByCountry[country];
   }
 
   onSubmit(){

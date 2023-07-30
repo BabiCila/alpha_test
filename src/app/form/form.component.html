@@ -25,20 +25,20 @@
   </div>
   <div class="form-group mb-3">
     <label for="FormControlInput1" class="form-label">País</label>
-    <select class="form-select" formControlName="pais" aria-label="Default select example">
-      <option selected>Selecione seu país</option>
-      <option value="1">One</option>
-      <option value="2">Two</option>
-      <option value="3">Three</option>
+    <select class="form-select" formControlName="pais" (change)="onChange()" aria-label="Default select example">
+      <option value="null" >Selecione seu país</option>
+      <option value="Angola">Angola</option>
+      <option value="Brasil">Brasil</option>
+      <option value="CaboVerde">Cabo Verde</option>
+      <option value="Moçambique">Moçambique</option>
+      <option value="Portugal">Portugal</option>
     </select>
   </div>
   <div class="form-group mb-3">
     <label for="FormControlInput1" class="form-label">Cidade</label>
     <select class="form-select" formControlName="cidade" aria-label="Default select example">
-      <option selected>Selecione sua cidade</option>
-      <option value="1">One</option>
-      <option value="2">Two</option>
-      <option value="3">Three</option>
+      <option value="null">Selecione sua cidade</option>
+      <option *ngFor="let city of cities" value="{{city}}">{{city}}</option>
     </select>
   </div>
 
