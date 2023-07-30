@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-form',
@@ -15,21 +15,24 @@ export class FormComponent implements OnInit{
 
   ngOnInit(){
     this.form = this.formBuilder.group({
-      name: [null],
-      email: [null],
-      nif: [null],
-      nascimento: [null],
-      pais: [null],
-      cidade: [null],
-      endereco: [null],
-      codigopostal: [null],
-      telefone: [null],
-      genero: [null],
+      name: [null, Validators.required],
+      email: [null, [Validators.required, Validators.email]],
+      nif: [null, [Validators.required]],
+      nascimento: [null,[Validators.required]],
+      pais: [null, [Validators.required]],
+      cidade: [null, [Validators.required]],
+      endereco: [null, Validators.required],
+      codigopostal: [null, [Validators.required]],
+      telefone: [null, [Validators.required]],
+      genero: [null, [Validators.required]],
     })
   }
   showForm(){
     return JSON.stringify(this.form.value)
   }
 
-
+  onSubmit(){
+    console.log(this.form);
+    //this.form.reset();
+  }
 }
