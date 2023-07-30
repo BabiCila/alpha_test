@@ -1,26 +1,26 @@
 <div class="container mx-auto p-5">
 <h1 class="text-center">Make your register</h1>
-
+{{showForm()}}
 <form [formGroup]="form">
   <div class="form-group mb-3">
     <label for="FormControlInput1" class="form-label">Nome</label>
-    <input type="name" class="form-control" id="name" placeholder="Digite seu nome completo">
+    <input type="name" class="form-control" formControlName="name" id="name" placeholder="Digite seu nome completo">
   </div>
   <div class="form-group mb-3">
     <label for="FormControlInput1" class="form-label">Email</label>
-    <input type="email" class="form-control" id="email" placeholder="Digite seu e-mail com o formato email@email.com">
+    <input type="email" class="form-control" formControlName="email" id="email" placeholder="Digite seu e-mail com o formato email@email.com">
   </div>
   <div class="form-group mb-3">
     <label for="FormControlInput1" class="form-label">NIF</label>
-    <input type="number" class="form-control" id="nif" placeholder="Digite o número de seu NIF">
+    <input type="number" class="form-control" formControlName="nif" id="nif" placeholder="Digite o número de seu NIF">
   </div>
   <div class="form-group mb-3">
     <label for="FormControlInput1" class="form-label">Data de Nascimento</label>
-    <input type="date" class="form-control" id="nascimento" placeholder="Selecione a data do seu nascimento">
+    <input type="date" class="form-control"formControlName="nascimento" id="nascimento" placeholder="Selecione a data do seu nascimento">
   </div>
   <div class="form-group mb-3">
     <label for="FormControlInput1" class="form-label">País</label>
-    <select class="form-select" aria-label="Default select example">
+    <select class="form-select" formControlName="pais" aria-label="Default select example">
       <option selected>Selecione seu país</option>
       <option value="1">One</option>
       <option value="2">Two</option>
@@ -29,7 +29,7 @@
   </div>
   <div class="form-group mb-3">
     <label for="FormControlInput1" class="form-label">Cidade</label>
-    <select class="form-select" aria-label="Default select example">
+    <select class="form-select" formControlName="cidade" aria-label="Default select example">
       <option selected>Selecione sua cidade</option>
       <option value="1">One</option>
       <option value="2">Two</option>
@@ -39,19 +39,19 @@
 
   <div class="form-group mb-3">
     <label for="FormControlInput1" class="form-label">Endereço</label>
-    <input type="name" class="form-control" id="endereco" placeholder="Digite seu endereço">
+    <input type="name" class="form-control" formControlName="endereco" id="endereco" placeholder="Digite seu endereço">
   </div>
   <div class="form-group mb-3">
     <label for="FormControlInput1" class="form-label">Código-Postal</label>
-    <input type="name" class="form-control" id="codigopostal" placeholder="Digite seu código postal">
+    <input type="name" class="form-control" formControlName="codigopostal" id="codigopostal" placeholder="Digite seu código postal">
   </div>
   <div class="form-group mb-3">
     <label for="FormControlInput1" class="form-label">Telefone</label>
-    <input type="number" class="form-control" id="telefone" placeholder="Preencha seu número de telefone">
+    <input type="number" class="form-control" formControlName="telefone" id="telefone" placeholder="Preencha seu número de telefone">
   </div>
   <div class="form-group mb-3">
     <label for="FormControlInput1" class="form-label">Género</label>
-    <input type="name" class="form-control" id="genero" placeholder="Selecione seu género">
+    <input type="name" class="form-control" formControlName="genero" id="genero" placeholder="Selecione seu género">
   </div>
   <button type="button" class="btn btn-primary">Enviar</button>
 </form>

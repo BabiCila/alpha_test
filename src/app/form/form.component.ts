@@ -27,6 +27,9 @@ export class FormComponent implements OnInit{
       genero: [null],
     })
   }
+  showForm(){
+    return JSON.stringify(this.form.value)
+  }
 
 
 }
