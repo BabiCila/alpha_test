@@ -10,14 +10,12 @@ export function nifValidator(control: AbstractControl) {
 
 function validaNIF(nif: string) {
 
-  // has 9 digits?
-  if (!/^[0-9]{9}$/.test(nif)) return false;
 
-  // is from a person?
+  if (!/^[0-9]{9}$/.test(nif)) return false;
   if (!/^[123]|45|5/.test(nif)) return false;
 
   const value = new String(nif);
-  // digit check
+
   let tot: number =
     parseInt(value[0]) * 9 +
     parseInt(value[1]) * 8 +

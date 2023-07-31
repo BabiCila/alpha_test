@@ -51,6 +51,6 @@ export class FormComponent implements OnInit{
 
   onSubmit(){
     console.log(this.form);
-    //this.form.reset();
+    this.form.reset();
   }
 }
