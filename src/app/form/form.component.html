@@ -7,7 +7,6 @@
     <input type="name" class="form-control" formControlName="name" id="name" placeholder="Digite seu nome completo">
   </div>
   <div class="mensagem__erro"*ngIf="form.get('name')?.invalid &&
-    form.get('name')?.dirty &&
     form.get('name')?.touched">
     Nome completo é obrigatório!
   </div>
@@ -18,8 +17,7 @@
   </div>
   <div class="mensagem__erro"
     *ngIf="form.get('email')?.invalid &&
-     form.get('email')?.touched &&
-     form.get('email')?.dirty">
+     form.get('email')?.touched">
     E-mail é obrigatório e deverá ser escrito no formato indicado.
   </div>
 
@@ -29,8 +27,7 @@
   </div>
   <div class="mensagem__erro"
     *ngIf="form.get('nif')?.invalid &&
-    form.get('nif')?.touched &&
-    form.get('nif')?.dirty">
+    form.get('nif')?.touched">
     NIF é obrigatório e deverá conter 9 dígitos.
   </div>
 
@@ -40,8 +37,7 @@
   </div>
   <div class="mensagem__erro"
     *ngIf="form.get('nascimento')?.invalid &&
-    form.get('nascimento')?.touched &&
-    form.get('nascimento')?.dirty">
+    form.get('nascimento')?.touched">
     Este campo é obrigatório. É necessário ter 18 anos ou mais.
   </div>
 
@@ -81,19 +77,17 @@
   </div>
   <div class="mensagem__erro"
     *ngIf="form.get('endereco')?.invalid &&
-    form.get('endereco')?.touched &&
-    form.get('endereco')?.dirty">
+    form.get('endereco')?.touched">
     Campo obrigatório.
   </div>
 
   <div class="form-group mb-3">
     <label for="FormControlInput1" class="form-label">Código-Postal</label>
-    <input type="name" class="form-control" formControlName="codigopostal" id="codigopostal" placeholder="Preencha no formato 0000-000">
+    <input type="name" class="form-control" formControlName="codigopostal" id="codigopostal" placeholder="Se o país selecionado for Portugal, preencha no formato 0000-000">
   </div>
   <div class="mensagem__erro"
     *ngIf="form.get('codigopostal')?.errors &&
-    form.get('codigopostal')?.touched &&
-    form.get('codigopostal')?.dirty">
+    form.get('codigopostal')?.touched">
     Campo obrigatório. O formato deve ser preenchido conforme foi indicado.
   </div>
 
@@ -103,8 +97,7 @@
   </div>
   <div class="mensagem__erro"
     *ngIf="form.get('telefone')?.invalid &&
-    form.get('telefone')?.touched &&
-    form.get('telefone')?.dirty">
+    form.get('telefone')?.touched">
     Campo obrigatório. Deverá ser um número válido.
   </div>
 
