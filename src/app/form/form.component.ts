@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { nifValidator } from '../shared/validators/nifValidator';
 import { maiorValidator } from '../shared/validators/maiorValidator';
+import { cpValidator } from '../shared/validators/cpValidator';
 
 
 @Component({
@@ -35,7 +36,7 @@ export class FormComponent implements OnInit{
       pais: [null, [Validators.required]],
       cidade: [null, [Validators.required]],
       endereco: [null, Validators.required],
-      codigopostal: [null, [Validators.required]],
+      codigopostal: [null, [Validators.required, cpValidator]],
       telefone: [null, [Validators.required, Validators.pattern(/^9[1236]{1}[0-9]{7}$|^2[1236]{1}[0-9]{7}$|^3[1236]{1}[0-9]{7}$/)]],
       genero: [null, [Validators.required]],
     })
@@ -46,6 +47,7 @@ export class FormComponent implements OnInit{
     const country:string = this.form.get("pais")?.value;
     this.cities = this.citiesByCountry[country];
   }
+
 
   onSubmit(){
     console.log(this.form);
