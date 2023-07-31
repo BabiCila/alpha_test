@@ -6,22 +6,45 @@
     <label for="FormControlInput1" class="form-label">Nome</label>
     <input type="name" class="form-control" formControlName="name" id="name" placeholder="Digite seu nome completo">
   </div>
+  <div class="mensagem__erro"*ngIf="form.get('name')?.invalid &&
+    form.get('name')?.dirty &&
+    form.get('name')?.touched">
+    Nome completo é obrigatório!
+  </div>
+
   <div class="form-group mb-3">
     <label for="FormControlInput1" class="form-label">Email</label>
-    <input type="email" class="form-control" formControlName="email" id="email" placeholder="Digite seu e-mail com o formato email@email.com">
+    <input type="email" class="form-control" formControlName="email" id="email" placeholder="Digite seu e-mail com o formato nome@email.com">
   </div>
+  <div class="mensagem__erro"
+    *ngIf="form.get('email')?.invalid &&
+     form.get('email')?.touched &&
+     form.get('email')?.dirty">
+    E-mail é obrigatório e deverá ser escrito no formato indicado.
+  </div>
+
   <div class="form-group mb-3">
     <label for="FormControlInput1" class="form-label">NIF</label>
     <input type="number" class="form-control" formControlName="nif" id="nif" placeholder="Digite o número de seu NIF">
   </div>
+  <div class="mensagem__erro"
+    *ngIf="form.get('nif')?.invalid &&
+    form.get('nif')?.touched &&
+    form.get('nif')?.dirty">
+    NIF é obrigatório e deverá conter 9 dígitos.
+  </div>
+
   <div class="form-group mb-3">
     <label for="FormControlInput1" class="form-label">Data de Nascimento</label>
     <input type="date" class="form-control"formControlName="nascimento" id="nascimento" placeholder="Selecione a data do seu nascimento">
   </div>
-
   <div class="mensagem__erro"
-    *ngIf="form.get('nascimento')?.errors?.['dataNascimento'] && form.get('nascimento')?.touched">
+    *ngIf="form.get('nascimento')?.invalid &&
+    form.get('nascimento')?.touched &&
+    form.get('nascimento')?.dirty">
+    Este campo é obrigatório. É necessário ter 18 anos ou mais.
   </div>
+
   <div class="form-group mb-3">
     <label for="FormControlInput1" class="form-label">País</label>
     <select class="form-select" formControlName="pais" (change)="onChange()" aria-label="Default select example">
@@ -33,6 +56,12 @@
       <option value="Portugal">Portugal</option>
     </select>
   </div>
+  <div class="mensagem__erro"
+    *ngIf="form.get('pais')?.invalid &&
+    form.get('pais')?.touched">
+    Campo obrigatório.
+  </div>
+
   <div class="form-group mb-3">
     <label for="FormControlInput1" class="form-label">Cidade</label>
     <select class="form-select" formControlName="cidade" aria-label="Default select example">
@@ -40,19 +69,45 @@
       <option *ngFor="let city of cities" value="{{city}}">{{city}}</option>
     </select>
   </div>
+  <div class="mensagem__erro"
+    *ngIf="form.get('cidade')?.invalid &&
+    form.get('cidade')?.touched">
+    Campo obrigatório.
+  </div>
 
   <div class="form-group mb-3">
     <label for="FormControlInput1" class="form-label">Endereço</label>
     <input type="name" class="form-control" formControlName="endereco" id="endereco" placeholder="Digite seu endereço">
   </div>
+  <div class="mensagem__erro"
+    *ngIf="form.get('endereco')?.invalid &&
+    form.get('endereco')?.touched &&
+    form.get('endereco')?.dirty">
+    Campo obrigatório.
+  </div>
+
   <div class="form-group mb-3">
     <label for="FormControlInput1" class="form-label">Código-Postal</label>
     <input type="name" class="form-control" formControlName="codigopostal" id="codigopostal" placeholder="Preencha no formato 0000-000">
   </div>
+  <div class="mensagem__erro"
+    *ngIf="form.get('codigopostal')?.errors &&
+    form.get('codigopostal')?.touched &&
+    form.get('codigopostal')?.dirty">
+    Campo obrigatório. O formato deve ser preenchido conforme foi indicado.
+  </div>
+
   <div class="form-group mb-3">
     <label for="FormControlInput1" class="form-label">Telefone</label>
     <input type="number" class="form-control" formControlName="telefone" id="telefone" placeholder="Preencha seu número de telefone">
   </div>
+  <div class="mensagem__erro"
+    *ngIf="form.get('telefone')?.invalid &&
+    form.get('telefone')?.touched &&
+    form.get('telefone')?.dirty">
+    Campo obrigatório. Deverá ser um número válido.
+  </div>
+
   <div class="form-group mb-3">
     <label for="FormControlInput1" class="form-label">Género</label>
     <select class="form-select" formControlName="genero" aria-label="Default select example">
@@ -60,6 +115,12 @@
       <option value="1">Feminino</option>
       <option value="2">Masculino</option>
     </select>
+    <div class="mensagem__erro"
+      *ngIf="form.get('genero')?.invalid &&
+      form.get('genero')?.touched">
+      Campo obrigatório.
+    </div>
+
   </div>
   <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Enviar</button>
 </form>
